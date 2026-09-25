@@ -1,0 +1,70 @@
+{
+  "dataset": "nebalelshobary/eye-disease-classification-dataset",
+  "experiment": "leakage_aware_group_split_seed42",
+  "seed": 42,
+  "split_sizes": {
+    "train": 9468,
+    "val": 1187,
+    "test": 1184
+  },
+  "split_sha256": {
+    "train": "a560126cb7d1aedbe3a77b9bed81750983e6acc0a93d9d7f1268b122a7840005",
+    "val": "2ded4aece133d2a019f716ca93c7498a20cd8ad52261811efa7a6a6a0b7dfe6f",
+    "test": "029549c70f3e37d287f19419d2a15d7cb2e46235ab3e34b2d2e5baea8c9b43c9"
+  },
+  "classes": [
+    "Normal",
+    "Diabetic Retinopathy",
+    "Glaucoma",
+    "Cataract",
+    "AMD",
+    "Hypertension",
+    "Myopia",
+    "Others"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "batch_size": 32,
+  "epochs_max": {
+    "scratch": 30,
+    "resnet_head": 15,
+    "resnet_finetune": 15
+  },
+  "test_metrics": [
+    {
+      "Model": "Scratch CNN",
+      "Test Accuracy": 0.4501689076423645,
+      "Macro F1": 0.388287488606495,
+      "Weighted F1": 0.533045839621448,
+      "Batch Size": 32,
+      "Mean Batch Latency (ms)": 35.433586399994965,
+      "Median Batch Latency (ms)": 35.33418150027501,
+      "Throughput (images/sec)": 903.0979714772691,
+      "Parameters": 458184,
+      "Checkpoint Size (MB)": 5.331258773803711
+    },
+    {
+      "Model": "Fine-tuned ResNet50",
+      "Test Accuracy": 0.5067567825317383,
+      "Macro F1": 0.4267855546322556,
+      "Weighted F1": 0.5686218099500685,
+      "Batch Size": 32,
+      "Mean Batch Latency (ms)": 211.770085866677,
+      "Median Batch Latency (ms)": 210.6820045000859,
+      "Throughput (images/sec)": 151.1072721580992,
+      "Parameters": 24114312,
+      "Checkpoint Size (MB)": 206.74278831481934
+    }
+  ],
+  "patient_grouping": "ODIR patient number from left/right filename; ACRIMA Im number conservatively grouped; APTOS2019 and ORIGA image-level only",
+  "limitations": [
+    "No validated patient IDs for APTOS2019 or ORIGA",
+    "Only 88 Hypertension images overall; uncertainty is high",
+    "Batch inference timing excludes file IO; not a single-image real-time benchmark",
+    "Research use only; not a clinically validated diagnostic system"
+  ],
+  "python": "3.12.13",
+  "tensorflow": "2.20.0"
+}

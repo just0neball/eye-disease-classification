@@ -1,0 +1,3 @@
+Model,Batch Size,Mean Batch Latency (ms),Median Batch Latency (ms),Throughput (images/sec)
+Scratch CNN,1,19.052207566589157,18.959674000143423,52.48735594050775
+Fine-tuned ResNet50,1,209.88979499995065,209.69768750001094,4.764405053615089
