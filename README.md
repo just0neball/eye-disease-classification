@@ -14,7 +14,7 @@ Dataset: 11,839 fundus images, 8 classes (ODIR5K, APTOS2019, ACRIMA, ORIGA). Run
 | Scratch CNN         |          0.4502 |     0.3883 |        0.5330 |           32 |                   35.4336 |                     35.3342 |                  903.0980 |       458184 |                 5.3313 |
 | Fine-tuned ResNet50 |          0.5068 |     0.4268 |        0.5686 |           32 |                  211.7701 |                    210.6820 |                  151.1073 |     24114312 |               206.7428 |
 
-Per-class performance: `scratch_cnn/classification_report.csv`, `resnet50/classification_report.csv`, and `per_class_comparison.csv`. Confusion matrices and training curves are in model directories. Single-image latency: `single_image_latency.csv`.
+Per-class performance: `results/scratch_cnn/classification_report.csv`, `results/resnet50/classification_report.csv`, and `results/per_class_comparison.csv`. Confusion matrices and training curves are in the corresponding model directories under `results/`. Single-image latency: `results/single_image_latency.csv`.
 
 ## Deployment interpretation
 Benchmark latency is measured on this Kaggle session's GPU. Batch-32 inference excludes disk reads and external preprocessing; the separate batch-1 benchmark is also provided. Checkpoint size includes Keras serialization and possible optimizer state, not only deployed weight size. Compare accuracy, per-class F1/recall, latency and footprint together; neither model is clinically validated.
